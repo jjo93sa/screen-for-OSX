@@ -68,7 +68,7 @@ sudo make install
 autoconf --version
 ```
 
-##automake
+## automake
 ```
 curl -O -L http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
 tar -xzf automake-1.15.tar.gz
