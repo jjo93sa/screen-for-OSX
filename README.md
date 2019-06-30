@@ -51,3 +51,30 @@ These are the things I did to this that make it vary from what you would get if 
 1. Applied all of the [Apple patches](https://www.opensource.apple.com/source/screen/screen-16/patches/) for `screen`
 2. Downloaded and included the required Apple header file [vproc_priv.h](http://www.opensource.apple.com/source/launchd/launchd-328/launchd/src/vproc_priv.h) into the repo so it matches the source here.  **Note: This file is not usually included with distributions of screen because its license (Apple Apache) is incompatible with the GPLv3**
 3. Added an install script to make the build and install process easier
+
+Addendum
+========
+
+Building this software requires the Xcode development tools, but these no longer include automake and autoconf, which are dependencies. Instead of using Homebrew, we can build these tools from source easily enough. See https://superuser.com/a/897316
+
+## autoconf
+```
+curl -O -L http://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz
+tar -xzf autoconf-2.69.tar.gz
+cd autoconf-*
+./configure
+make
+sudo make install
+autoconf --version
+```
+
+##automake
+```
+curl -O -L http://ftpmirror.gnu.org/automake/automake-1.15.tar.gz
+tar -xzf automake-1.15.tar.gz
+cd automake-*
+./configure
+make
+sudo make install
+automake --version
+```
